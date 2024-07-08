@@ -14,10 +14,11 @@ class Address extends Model
     protected $keyType = "int";
     public $timestamps = true;
     public $incrementing = true;
-
+    protected $fillable = [
+        'street', 'city', 'province', 'postal_code', 'country', 'contact_id'
+    ];
     public function contact(): BelongsTo
     {
         return $this->belongsTo(Contact::class, "contact_id", "id");
     }
-
 }
